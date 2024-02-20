@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:meme_generator/screen/meme_generator_screen.dart';
+import 'package:meme_generator/domain/entities/template.dart';
+import 'package:meme_generator/infrastructure/services/template_storage_service.dart';
+import 'package:meme_generator/presentation/app.dart';
+import 'package:provider/provider.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final templateStorageService = await _initTemplateStorage();
 
-  runApp(const MyApp());
+  runApp(
+    Provider.value(
+      value: templateStorageService,
+      child: const MyApp(),
+    ),
+  );
 }
 
-/// App,s main widget.
-class MyApp extends StatelessWidget {
-  /// Constructor for [MyApp].
-  const MyApp({Key? key}) : super(key: key);
+Future<TemplateStorageService> _initTemplateStorage() async {
+  final templateStorageService = await TemplateStorageService.init();
+  final templates = await templateStorageService.getTemplates();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MemeGeneratorScreen(),
-    );
+  if (templates.isEmpty) {
+    await templateStorageService.addAllTemplates(_defaultTemplates);
   }
+
+  return templateStorageService;
 }
+
+const _defaultTemplates = <Template>[];

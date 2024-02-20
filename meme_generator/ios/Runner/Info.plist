@@ -26,6 +26,14 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Это приложение требует доступ к вашей фотогалерее, чтобы сохранять фотографии.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Это приложение требует доступ к вашей фотогалерее, чтобы сохранять фотографии.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Это приложение требует доступ к вашей камере, чтобы делать фотографии.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Это приложение требует доступ к вашему микрофону, чтобы делать фотографии.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>

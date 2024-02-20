@@ -1,7 +1,7 @@
 name: meme_generator
 description: A new Flutter project.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -10,10 +10,22 @@ environment:
   flutter: 3.16.3 # Flutter SDK version
 
 dependencies:
+  collection: ^1.18.0
+  crypto: ^3.0.3
+  dio: ^5.4.1
+  file_saver: ^0.2.10
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
+  flutter_colorpicker: ^1.0.3
+  image: ^4.1.7
+  image_downloader_web: ^2.0.4
+  image_gallery_saver: ^2.0.3
+  image_picker: ^1.0.7
+  provider: ^6.1.1
+  screenshot: ^2.1.0
+  share_plus: ^7.2.2
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:
